@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Budget App</title>
+        <link rel="stylesheet" href="budget.css" type="text/css"> 
+        <script src="budget.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="main">
+            <div class="header">
+                <label>BUDGET APP</label>
+            </div>
+            <div class="second">
+                <div class="sec_left">
+                    <div class="first_form">
+                    
+                        <form>
+                            <label for="budget">Please enter your Budget</label><br>
+                            <input type="text" id="enterbudget" name="budget"><br>
+                            <input type="button" id="calculate" value="Calculate" onclick="function1()">
+                        </form>
+                        
+                    </div>
+                    <div class="second_form">
+                        <form>
+                            <label for="expense">Please Enter Your Expense</label><br>
+                            <input type="text" id="enterexpense" name="expense"><br>
+                            <label for="expamount"> Please Enter Expense Amount</label><br>
+                            <input type="text" id="enteramount" name="expamount"><br>
+                            <input type="button" id="addexpense" value="Add Expense" onclick="function2()">
+                        </form>
+                    </div>
+                </div>
+                <div class="sec_right">
+                    <div class="grid-container">
+                        <div >
+                            <label>BUDGET</label><br>
+                            <img src="money.png" width="50px" height="50px"><br><br>
+                            $<label id="budget1" style="font-weight: bolder;"></label>
+                        </div>
+                        <div>
+                            <label>EXPENSES</label><br>
+                            <img src="card.png" width="50px" height="50px"><br><br>
+                            $<label id="budget2" style="font-weight: bolder;"></label>
+                        </div>
+                        <div>
+                            <label>BALANCE</label><br>
+                            <img src="dollar.png" width="50px" height="50px"><br><br>
+                            $<label id="budget3" style="font-weight: bolder;"></label>
+                        </div>
+                        <div class="item4">
+                            <table id="table">
+                                <tr>
+                                    <th>Expense Title</th>
+                                    <th>Expense Value</th>
+                                    <th></th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
