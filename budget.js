@@ -30,8 +30,8 @@ function function2()
     arr.forEach(function(val,key)
     {
         $("table").append('<tr><td>'+val.name+'</td><td>'+val.value+'</td><td>'+
-        '<button type="button"><img src="edot.png" width="15px" height="15px"></button>'+
-        '<button type="button" onclick="deleteRow('+key+',this)"><img src="delete.png" width="15px" height="15px"></button></td></tr>');
+        '<img src="edot.png" width="15px" height="15px">'+
+        '<img src="delete.png" width="15px" height="15px" onclick="deleteRow('+key+',this)"></td></tr>');
     });
     addExpense(budgetuseage);
  calcuateBalance();
