@@ -18,7 +18,7 @@ function function2()
 {
  var budgetuse=document.getElementById("enteramount").value;
   budgetuseage= parseInt(budgetuse);
- addExpense(budgetuseage);
+ 
 
  var exptitle=document.getElementById("enterexpense").value;
  var arr=[];
@@ -33,7 +33,7 @@ function function2()
         '<button type="button"><img src="edot.png" width="15px" height="15px"></button>'+
         '<button type="button" onclick="deleteRow('+key+',this)"><img src="delete.png" width="15px" height="15px"></button></td></tr>');
     });
-
+    addExpense(budgetuseage);
  calcuateBalance();
 }
 
@@ -52,5 +52,9 @@ function calcuateBalance(){
 }
 function deleteRow(amt,e)
 {
+    var exp=parseInt(document.getElementById("budget2").innerHTML);
+    var expvalue=document.getElementById("enteramount").value;
+    document.getElementById("budget2").innerHTML=exp-expvalue;
+    calcuateBalance();
     $(e).parent().parent().remove();
 }
