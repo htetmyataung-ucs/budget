@@ -1,4 +1,5 @@
 var budgetin1=0;
+var deletearr=[];
 function function1()
 {
  var budgetin=document.getElementById("enterbudget").value;
@@ -12,29 +13,33 @@ function addBudget(amt){
     calcuateBalance();
 } 
 
-
+var arr=[];
+var obj={};
 var budgetuseage=0;
 function function2()
 {
  var budgetuse=document.getElementById("enteramount").value;
   budgetuseage= parseInt(budgetuse);
- 
+  addExpense(budgetuseage);
+  calcuateBalance();
 
  var exptitle=document.getElementById("enterexpense").value;
- var arr=[];
- var obj={ 
+ 
+ obj={ 
         name:exptitle,
         value:budgetuseage,
     };
     arr.push(obj);
+    deletearr.push(obj);
     arr.forEach(function(val,key)
     {
-        $("table").append('<tr><td>'+val.name+'</td><td>'+val.value+'</td><td>'+
-        '<img src="edot.png" width="15px" height="15px">'+
+        $("table").append('<tr><td>'+val.name+'</td><td id="td1">'+val.value+'</td><td>'+
+        '<img src="edot.png" width="15px" height="15px" onclick="editTable('+key+',this)">'+
         '<img src="delete.png" width="15px" height="15px" onclick="deleteRow('+key+',this)"></td></tr>');
+        delete arr[key];
     });
-    addExpense(budgetuseage);
- calcuateBalance();
+   
+ 
 }
 
 function addExpense(amt)
@@ -50,11 +55,20 @@ function calcuateBalance(){
     document.getElementById("budget3").innerHTML=totalBudget-totalExpense;
     
 }
+var expvalue=0;
 function deleteRow(amt,e)
 {
-    var exp=parseInt(document.getElementById("budget2").innerHTML);
-    var expvalue=document.getElementById("enteramount").value;
-    document.getElementById("budget2").innerHTML=exp-expvalue;
-    calcuateBalance();
-    $(e).parent().parent().remove();
+    alert(amt);
+   alert(deletearr[amt].value);
+     var exp=parseInt(document.getElementById("budget2").innerHTML);
+     alert(exp);
+    document.getElementById("budget2").innerHTML=exp-deletearr[amt].value;
+   
+    // document.getElementById("budget2").innerHTML=exp-expvalue;
+     calcuateBalance();
+     $(e).parent().parent().remove();
+    
+}
+function editTable(amt,e){
+
 }
